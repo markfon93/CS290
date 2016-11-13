@@ -6,7 +6,7 @@ var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 4000);
+app.set('port', 53455);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -47,5 +47,5 @@ app.use(function(err, req, res, next){
 });
 
 app.listen(app.get('port'), function(){
-	console.log('Express started on port 4000');
+	console.log('Express started on port 53455');
 });
