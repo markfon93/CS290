@@ -1,3 +1,0 @@
-# CS290
-
-Test README
