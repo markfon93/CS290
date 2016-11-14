@@ -1,25 +1,16 @@
 {
-  "name": "week7",
+  "name": "getPostChecker",
   "version": "1.0.0",
-  "description": "getPost dependencies",
-  "main": "getPost.js",
-  "dependencies": {
-    "body-parser": "^1.14.1",
-    "express": "^4.13.3",
-    "express-handlebars": "^2.0.1"
-  },
-  "devDependencies": {},
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "node getPost.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jensbodal/cs290-getPost.git"
-  },
-  "author": "Jens Bodal",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jensbodal/cs290-getPost/issues"
-  },
-  "homepage": "https://github.com/jensbodal/cs290-getPost#readme"
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0"
+  }
 }
