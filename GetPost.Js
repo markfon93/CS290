@@ -1,19 +1,46 @@
 var express = require('express');
-
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.engine('handlebars', handlebars.engine);
+
 app.set('view engine', 'handlebars');
-app.set('port', 7069);
+app.set('port', 40000);
 
-app.get('/',function(req,res){
-  res.render('home.handlebars') //We can omit the .handlebars extension as we do below
+app.post('/', function(req, res) {
+    var context = getContext('GET', req, false);
+    context.post = getContext('POST', req, true);
+    context.isPost = true;
+    res.render('getPost', context);
 });
 
-app.get('/other-page',function(req,res){
-  res.render('other-page');
+app.get('/', function(req, res) {
+    var context = getContext('GET', req, false);
+    res.render('getPost', context);
 });
+
+function getContext(type, req, isPost) {
+    var params = [];
+    if (isPost) {
+        reqType = req.body;
+    }
+    else {
+        reqType = req.query;
+    }
+    for (var param in reqType) {
+        params.push({'name':param, 'value': reqType[param]});
+    }
+    console.log(params);
+    console.log(req.body);
+    var context = {};
+    context.params = params;
+    context.type = type;
+    return context;
+}
 
 app.use(function(req,res){
   res.status(404);
